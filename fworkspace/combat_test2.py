@@ -1,7 +1,11 @@
 import time
-php = 100
-pdmg = 30
-pheal = 10
+cls = print("\033c", end="")
+bhp = 100
+bdmg = 30
+bheal = 10
+php = bhp
+pdmg = bdmg
+pheal = bheal
 m1hp = 100
 m1dmg = 20
 action = '1 = fight; 2 = heal;'
@@ -91,12 +95,44 @@ while php >= 0 and m1hp >= 0:
             print("\033c", end="")
             print("Enemy Turn")
             time.sleep(1)
-            print("you have leather armour, the enemy damage is lowered by 20%")
+            print(str(m1dmg) + " damage taken")
             time.sleep(1)
             php -= m1dmg
             stat1()
             pturn = True
         if m1hp <= 0:
             break
-print("\033c", end="")
+cls
 print("you win")
+time.sleep(1)
+print("\033c", end="")
+cls
+print("you have leveled up, you can put in skill points into your damage, healing or armour")
+print("your base stats are: " + "hp: " + str(bhp) + " dmg: " + str(bdmg) + " heal: " + str(bheal))
+print("type the stat you want to level, that stat will level by 30")
+time.sleep(4)
+cls
+while 1:
+    sc1 = input("I want to level: ")
+    if sc1 == "hp":
+        bhp += 30
+        print("base hp increased")
+        time.sleep(1)
+        cls
+        break
+    elif sc1 == "dmg":
+        bdmg += 30
+        print("base damage increased")
+        time.sleep(1)
+        cls
+        break
+    elif sc1 == "heal":
+        bheal += 30
+        time.sleep(1)
+        cls
+        break
+    else:
+        print("do you not want a stat increase?")
+        continue
+
+print(bhp, bdmg, bheal)
