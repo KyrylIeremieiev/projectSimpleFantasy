@@ -146,7 +146,7 @@ while 1:
                 continue
     elif choice1 == "leave":
         pturn = True
-        chapter1.ghoul1()
+        chapter1.ghoul1() # Ghoul Encounter
         while php > 0 and ghoulhp > 0:
             if truedmg == False and inv["weapon"] == "sword":
                 pdmg += 30
@@ -159,7 +159,7 @@ while 1:
             if truedmg == True:
                 stat2()
                 if pturn:
-                    stat1
+                    stat2()
                     while 1:
                         i1 = input("> ")
                         if i1 == "1":
@@ -185,6 +185,7 @@ while 1:
                 if ghouldmg <= 0:
                     print("\033c", end="")
                     print("the creature died")
+                    gspell = True
                     time.sleep(1)
                     break
     else:
@@ -195,10 +196,88 @@ while 1:
 
 if choice2 == True:
     chapter1.plg2()
+    holystatue = True
     chapter1.splprof1()
     splprof += 20
     phnxnest = True
     def phoenix():
-        if rcount >= 5:
+        if rcount <=5:
             php += phnx
             rcount += 1
+        if rcount == 5:
+            rcount = 0
+
+elif gspell == True:
+    chapter1.ghoul2()
+    while 1:
+        choice = input("> ")
+        if choice == "y":
+            chapter1.splprof2()
+            splprof += 20
+            dmnzation = True
+                
+gstatus = "/"
+pstatus = "/"
+rcount = 0
+while php > 0 and ghoulhp > 0:
+            if truedmg == False and inv["weapon"] == "sword":
+                pdmg += 30
+                print("sword equiped, damage increased")
+                time.sleep(1)
+                truedmg = True
+            else:
+                truedmg = True
+
+            if truedmg == True:
+                stat2()
+                if pturn:
+                    if rcount >= 5:
+                        gstatus = "/"
+                        pstatus = "/"
+                    elif gstatus == "active":
+                        if pdmg == bdmg:
+                            pdmg *= 2
+                            rcount += 1
+                        else:
+                            rcount += 1
+                    elif pstatus == "active":
+                        if php < bhp:
+                            php += phnx
+                            rcount += 1
+                    stat2()
+                    while 1:
+                        i1 = input("> ")
+                        if i1 == "1":
+                            print("\033c", end="")
+                            ghoulhp -= pdmg
+                            print("Enemy hp is decreased by " + str(pdmg))
+                            time.sleep(1)
+                            print("\033c", end="")
+                            break
+                        elif i1 == "2":
+                            if dmnzation == True:
+                                gstatus = "active"
+                                rcount = 0
+                            elif phnxnest == True:
+                                pstatus = "active"
+                                rcount = 0
+                            break
+                        else:
+                            print(invalid)
+                            continue
+                    pturn = False
+                else:
+                    print("\033c", end="")
+                    print("Enemy Turn")
+                    time.sleep(1)
+                    print(str(ghouldmg) + " damage taken")
+                    time.sleep(1)
+                    php -= ghouldmg
+                    stat2()
+                    pturn = True
+                if ghoulhp <= 0:
+                    print("\033c", end="")
+                    print("the creature died")
+                    gspell = True
+                    time.sleep(1)
+                    break
