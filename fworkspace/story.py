@@ -3,9 +3,35 @@
 import time
 from chapters import chapter1
 
+def ghoul1():
+    print("\033c", end="")
+    print("You decide to not enter the village and go around it")
+    input()
+    print("As you walk you see a burning cariage")
+    input()
+    print("And a weird creature, its skin is gray and its hands are practically claws")
+    input()
+    print("You may have wanted to run away but the creature saw you!")
+    print("\033c", end="")
+
+def ghoul2():
+    print("The creature falls")
+    input()
+    print("Leaving only bodies behind the creature without name nor face")
+    input()
+    print("\033c", end="")
+    print("Do you want to loot the carriage?")
+    print("(y/n)")
+
 print("\033c", end="")
 chapter1.story1()
 input()
+
+def level1():
+    print("\033c", end="")
+    print("you leveled up!")
+    print("you can increase your stats now.")
+    print("enter 1 to increase you hp by 50, 2 to increase your dmg by 50")
 
 cls = print("\033c", end="")
 bhp = 100
@@ -92,7 +118,7 @@ print("you can increase your stats now.")
 print("enter 1 to increase you hp by 50, 2 to increase your dmg by 50")
 
 #level up 1
-chapter1.level1()
+level1()
 while 1:
     i2 = input("> ")
     if i2 == "1":
@@ -146,7 +172,7 @@ while 1:
                 continue
     elif choice1 == "leave":
         pturn = True
-        chapter1.ghoul1() # Ghoul Encounter
+        ghoul1() # Ghoul Encounter
         while php > 0 and ghoulhp > 0:
             if truedmg == False and inv["weapon"] == "sword":
                 pdmg += 30
@@ -200,6 +226,7 @@ if choice2 == True:
     chapter1.splprof1()
     splprof += 20
     phnxnest = True
+    dmnzation = False
     def phoenix():
         if rcount <=5:
             php += phnx
@@ -208,13 +235,14 @@ if choice2 == True:
             rcount = 0
 
 elif gspell == True:
-    chapter1.ghoul2()
+    ghoul2()
     while 1:
         choice = input("> ")
         if choice == "y":
             chapter1.splprof2()
             splprof += 20
             dmnzation = True
+            phnxnest = False
                 
 gstatus = "/"
 pstatus = "/"
