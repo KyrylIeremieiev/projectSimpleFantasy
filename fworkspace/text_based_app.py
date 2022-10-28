@@ -1,5 +1,9 @@
 import time
 from chapters import chapter1
+from chapters.chapter1 import *
+
+awk()
+
 def stat():
     print("\033c", end="")
     print('Your hp is called php. Your own damage is called pdmg.')
