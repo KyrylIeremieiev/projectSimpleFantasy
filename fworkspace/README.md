@@ -11,5 +11,7 @@ Eind Product:
 21 stukjes waar else 4 keuzes aanbiedt, 7 eindes
 Er is een combat systeem, maar ik heb het gesimpleveert sins het moeilijk in dit soort opdracht kan passen
 
+
+...,sbvcb
 flowchart
 https://miro.com/app/board/uXjVPLtMRMU=/
