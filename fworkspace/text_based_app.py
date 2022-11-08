@@ -1,8 +1,5 @@
 import time
 from chapters import chapter1
-from chapters.chapter1 import *
-
-awk()
 
 def stat():
     print("\033c", end="")
@@ -65,8 +62,10 @@ while 1:
     if r == 109:
         chapter1.awk()
         print("Wich way do you want to go?")
+        print("(stairs/kitchen")
         while 1:
             i = input("> ")
+
             if i == "kitchen":
                 chapter1.ktch()
                 print("You you run back and up the stairs or do you freeze?")
@@ -130,6 +129,7 @@ while 1:
                 break
             if r == 7:
                 chapter1.chroom()
+                print("(play/fight)")
                 while 1:
                     chapter1.chroomop()
                     i = input("> ")
@@ -157,6 +157,7 @@ while 1:
                 break
     elif r == 6:
         chapter1.bathroom()
+        print("(window/door)")
         while 1:
             i = input("> ")
             if i == "window":
@@ -183,6 +184,7 @@ while 1:
             if i == "1":
                 chapter1.garden1()
                 bdmg = 35
+                print("(confront/shed)")
                 while 1:
                     i = input("> ")
                     if i == "confront":
@@ -258,7 +260,9 @@ while 1:
                         print("guess were going upstairs")
                         r = 12
                 break
-
+            elif i == "stairs":
+                r = 12
+                
     if r == 12:
         print("As your walking up the stairs you see a familiar face...")
         print("ITS THE BUTCHER!")
